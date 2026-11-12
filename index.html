@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 2nd Anniversary, My Love ❤️</title>
+  <meta name="description" content="Two Years, A Million Memories. A special 2nd anniversary celebration made with love.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,900;1,500;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body style="background-image: linear-gradient(135deg, rgba(38, 5, 18, 0.65) 0%, rgba(22, 3, 10, 0.70) 50%, rgba(14, 2, 7, 0.78) 100%), url('BG.JPG'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed;">
+  <!-- Dynamic Floating Hearts & Sparkles Canvas -->
+  <canvas id="hearts-canvas"></canvas>
+
+  <!-- Ambient Background Layer -->
+  <div class="bg-layer" style="background-image: linear-gradient(135deg, rgba(38, 5, 18, 0.65) 0%, rgba(22, 3, 10, 0.70) 50%, rgba(14, 2, 7, 0.78) 100%), url('BG.JPG'); background-size: cover; background-position: center center; background-repeat: no-repeat;" aria-hidden="true"></div>
+
+  <!-- Background Music Audio Element -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="Tere Warga_320(KoshalWorld.Com).mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Fixed Bottom-Right Music Control Widget -->
+  <div class="music-controller" id="music-controller" title="Toggle Background Music">
+    <button class="music-btn" id="music-toggle-btn" aria-label="Toggle background music">
+      <div class="equalizer-bars" id="equalizer-bars" aria-hidden="true">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+        <span class="bar bar-3"></span>
+        <span class="bar bar-4"></span>
+      </div>
+      <div class="music-muted-icon" id="music-muted-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <line x1="23" y1="9" x2="17" y2="15"></line>
+          <line x1="17" y1="9" x2="23" y2="15"></line>
+        </svg>
+      </div>
+    </button>
+    <div class="music-tooltip" id="music-tooltip">Music: OFF</div>
+  </div>
+
+  <!-- Navigation Dots Indicator -->
+  <nav class="nav-indicator" aria-label="Section Navigation">
+    <a href="#home" class="nav-dot active" data-section="home" title="Home"><span class="dot-label">Home</span></a>
+    <a href="#reasons" class="nav-dot" data-section="reasons" title="10 Reasons"><span class="dot-label">10 Reasons</span></a>
+    <a href="#letter" class="nav-dot" data-section="letter" title="Love Letter"><span class="dot-label">Love Letter</span></a>
+    <a href="#memories" class="nav-dot" data-section="memories" title="Our Memories"><span class="dot-label">Memories</span></a>
+  </nav>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="page-container">
+
+    <!-- 1. HOME SECTION -->
+    <section class="section hero-section" id="home">
+      <div class="hero-content">
+        <div class="romantic-badge">
+          <span class="sparkle-icon">✨</span>
+          <span>Two Years of Togetherness</span>
+          <span class="sparkle-icon">✨</span>
+        </div>
+        
+        <h1 class="hero-heading">Two Years, A Million Memories.</h1>
+        
+        <p class="hero-subtitle">A little something, made with all my love, just for you.</p>
+
+        <div class="hero-action">
+          <button class="cta-button primary-btn" id="enter-btn">
+            <span>Enter Our Little World</span>
+            <span class="btn-heart">❤️</span>
+          </button>
+        </div>
+
+        <div class="scroll-cue" id="scroll-cue">
+          <span class="scroll-text">Scroll to explore our journey</span>
+          <div class="scroll-arrow">↓</div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 2. 10 REASONS WHY I LOVE YOU SECTION -->
+    <section class="section reasons-section" id="reasons">
+      <div class="section-header">
+        <span class="section-tag">From My Soul</span>
+        <h2 class="section-title">10 Reasons Why I Love You</h2>
+        <div class="section-divider">
+          <span class="line"></span>
+          <span class="divider-heart">❦</span>
+          <span class="line"></span>
+        </div>
+        <p class="section-description">
+          Click and pop each floating bubble to uncover what makes you so irreplaceable to me.
+        </p>
+        <div class="reasons-progress" id="reasons-progress">
+          <span id="reasons-count-badge">Popped: 0 / 10 Reasons</span>
+        </div>
+      </div>
+
+      <!-- Floating Numbered Bubbles Container -->
+      <div class="bubbles-arena" id="bubbles-arena">
+        <button class="bubble-btn" data-index="1" aria-label="Reason 1">
+          <div class="bubble-inner">
+            <span class="bubble-heart">❤️</span>
+            <span class="bubble-number">01</span>
+            <span class="bubble-tap-hint">Pop me</span>
+          </div>
+        </button>
+
+        <button class="bubble-btn" data-index="2" aria-label="Reason 2">
+          <div class="bubble-inner">
+            <span class="bubble-heart">❤️</span>
+            <span class="bubble-number">02</span>
+            <span class="bubble-tap-hint">Pop me</span>
+          </div>
+        </button>
+
+        <button class="bubble-btn" data-index="3" aria-label="Reason 3">
+          <div class="bubble-inner">
+            <span class="bubble-heart">❤️</span>
+            <span class="bubble-number">03</span>
+            <span class="bubble-tap-hint">Pop me</span>
+          </div>
+        </button>
+
+        <button class="bubble-btn" data-index="4" aria-label="Reason 4">
+          <div class="bubble-inner">
+            <span class="bubble-heart">❤️</span>
+            <span class="bubble-number">04</span>
+            <span class="bubble-tap-hint">Pop me</span>
+          </div>
+        </button>
+
+        <button class="bubble-btn" data-index="5" aria-label="Reason 5">
+          <div class="bubble-inner">
+            <span class="bubble-heart">❤️</span>
+            <span class="bubble-number">05</span>
+            <span class="bubble-tap-hint">Pop me</span>
+          </div>
+        </button>
+
+        <button class="bubble-btn" data-index="6" aria-label="Reason 6">
+          <div class="bubble-inner">
+            <span class="bubble-heart">❤️</span>
+            <span class="bubble-number">06</span>
+            <span class="bubble-tap-hint">Pop me</span>
+          </div>
+        </button>
+
+        <button class="bubble-btn" data-index="7" aria-label="Reason 7">
+          <div class="bubble-inner">
+            <span class="bubble-heart">❤️</span>
+            <span class="bubble-number">07</span>
+            <span class="bubble-tap-hint">Pop me</span>
+          </div>
+        </button>
+
+        <button class="bubble-btn" data-index="8" aria-label="Reason 8">
+          <div class="bubble-inner">
+            <span class="bubble-heart">❤️</span>
+            <span class="bubble-number">08</span>
+            <span class="bubble-tap-hint">Pop me</span>
+          </div>
+        </button>
+
+        <button class="bubble-btn" data-index="9" aria-label="Reason 9">
+          <div class="bubble-inner">
+            <span class="bubble-heart">❤️</span>
+            <span class="bubble-number">09</span>
+            <span class="bubble-tap-hint">Pop me</span>
+          </div>
+        </button>
+
+        <button class="bubble-btn" data-index="10" aria-label="Reason 10">
+          <div class="bubble-inner">
+            <span class="bubble-heart">❤️</span>
+            <span class="bubble-number">10</span>
+            <span class="bubble-tap-hint">Pop me</span>
+          </div>
+        </button>
+      </div>
+
+      <!-- Reason Pop-up Modal -->
+      <div class="reason-modal-overlay" id="reason-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="reason-modal-card">
+          <button class="modal-close-icon" id="modal-close-icon" aria-label="Close popup">&times;</button>
+          
+          <div class="modal-header">
+            <span class="modal-badge" id="modal-badge">Reason #1</span>
+            <div class="modal-sparkles">✨ 💖 ✨</div>
+          </div>
+          
+          <div class="modal-body">
+            <p class="modal-reason-text" id="modal-reason-text">
+              Because you make even ordinary days special.
+            </p>
+          </div>
+          
+          <div class="modal-footer">
+            <button class="modal-nav-btn prev-btn" id="modal-prev-btn" aria-label="Previous reason">
+              <span>← Prev</span>
+            </button>
+            <button class="modal-action-btn close-btn" id="modal-close-btn">
+              <span>Close ❤️</span>
+            </button>
+            <button class="modal-nav-btn next-btn" id="modal-next-btn" aria-label="Next reason">
+              <span>Next Reason ➜</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 3. LOVE LETTER SECTION -->
+    <section class="section letter-section" id="letter">
+      <div class="section-header">
+        <span class="section-tag">Directly Unfiltered</span>
+        <h2 class="section-title">A Letter From My Heart</h2>
+        <div class="section-divider">
+          <span class="line"></span>
+          <span class="divider-heart">✉️</span>
+          <span class="line"></span>
+        </div>
+        <p class="section-description">
+          An envelope sealed with patience, love, and a thousand unspoken thoughts.
+        </p>
+      </div>
+
+      <div class="envelope-showcase">
+        <!-- 3D Romantic Envelope Element -->
+        <div class="envelope-wrapper" id="envelope-wrapper">
+          <div class="envelope" id="envelope">
+            <!-- Envelope Back Wall -->
+            <div class="envelope-back"></div>
+            
+            <!-- Letter Paper sliding inside/outside -->
+            <div class="letter-paper" id="letter-paper">
+              <div class="letter-content-scroll">
+                <div class="letter-filigree-top">❖ ❖ ❖</div>
+                
+                <h3 class="letter-salutation">My Love ❤️</h3>
+                
+                <div class="letter-body">
+                  <p>2 years... jab peeche dekhti hoon toh realise hota hai ki humne kitni saari cheezein saath experience ki hain. Beautiful memories, ups and downs, achhe bure din aur difficult situations. Aur phir bhi hum yahan tak saath aaye hain.</p>
+                  
+                  <p>Mujhe pata hai life hamesha easy nahi hogi. Kabhi situations difficult hongi, kabhi cheezein hamare according nahi hongi. But jo bhi hoga, hum saath deal karenge, dheere-dheere, step by step.</p>
+                  
+                  <p>Hum dono kabhi-kabhi chhoti baaton par disturb ho jaate hain, misunderstandings ho jaati hain. But main chahti hoon hum ek doosre ko better samjhein, communicate karein, patience rakhein aur apne relationship ka spark kabhi lose na karein.</p>
+                  
+                  <p class="letter-highlight">Ab hum sirf ek doosre ke liye nahi, <strong>humare liye, humare bond aur future ke liye kaam karenge.</strong> Apne dreams achieve karenge, khud ko better banayenge aur saath mein grow karenge.</p>
+                  
+                  <p>Honestly, mera time tere saath bahut beautiful raha hai aur mujhe pata hai aage aur bhi achha hoga. Main bahut mehnat kar rahi hoon taaki jaldi tujhse mil paaun. I know tu bhi mere liye bahut efforts karta hai, and I appreciate everything. Kabhi-kabhi cheezein ajeeb ho jaati hain, but hum milkar sab better karenge.</p>
+                  
+                  <p>Distance hai, but tu mujhse door nahi hai. Main khud ko bahut samjhati hoon ki ye bas ek phase hai. I miss you so much, bahut zyada. Bas mann karta hai tujhe hug karun, tere paas rahun aur tere saath time spend karun.</p>
+                  
+                  <p>I love you so much. Main tere saath bahut zyada attached hoon, jitna explain bhi nahi kar sakti. Please never leave me. I don't want to lose you. I want you in my life, always.</p>
+                  
+                  <p>Abhi toh sirf 2 years hue hain. Abhi bahut saari memories banani hain, jagah ghoomni hain, celebrations, silly fights, laughter aur poori life saath experience karni hai.</p>
+                  
+                  <p>I want you to be my partner. I want to grow with you, build our future together and keep choosing you, even on difficult days.</p>
+                  
+                  <p>Let's take things slowly, understand each other and always work for US. I want this bond to stay beautiful forever.</p>
+                  
+                  <p class="letter-vow"><strong>I love you, I miss you, and I want us. Always and forever. ❤️</strong></p>
+                  
+                  <p class="letter-anniversary-wish">Happy 2nd Anniversary, my favourite person.</p>
+                </div>
+                
+                <div class="letter-signature">
+                  <span>Always yours ❤️</span>
+                </div>
+
+                <div class="letter-filigree-bottom">❦ ❦ ❦</div>
+              </div>
+            </div>
+
+            <!-- Envelope Pocket & Flaps -->
+            <div class="envelope-pocket"></div>
+            <div class="envelope-flap-left"></div>
+            <div class="envelope-flap-right"></div>
+            <div class="envelope-flap-top" id="envelope-flap-top">
+              <div class="wax-seal" id="wax-seal">
+                <span>❤️</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Envelope Action Control Button -->
+        <div class="envelope-actions">
+          <button class="cta-button romantic-btn" id="open-envelope-btn">
+            <span class="btn-text">Open My Heart ❤️</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 4. OUR MEMORIES SECTION -->
+    <section class="section memories-section" id="memories">
+      <div class="section-header">
+        <span class="section-tag">Moments Etched In Time</span>
+        <h2 class="section-title">Our Story, Our Memories</h2>
+        <div class="section-divider">
+          <span class="line"></span>
+          <span class="divider-heart">🎬</span>
+          <span class="line"></span>
+        </div>
+      </div>
+
+      <div class="video-showcase-container">
+        <div class="video-frame-glow">
+          <div class="video-inner-frame">
+            <video 
+              id="anniversary-video" 
+              controls 
+              playsinline 
+              preload="metadata"
+              poster="BG.JPG">
+              <source src="VN20261112_163742.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <div class="video-caption-box">
+          <div class="quote-mark">“</div>
+          <p class="video-caption-text">Every moment with you is a memory I want to keep forever.</p>
+          <div class="quote-mark closing">”</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- LUXURY FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-glow"></div>
+    <p class="footer-main">Celebrating 2 Years of Us • 730 Days of Love</p>
+    <p class="footer-sub">Here’s to a lifetime more of adventures, laughter, and choosing each other. Always. ❤️</p>
+  </footer>
+
+  <script src="script.js?v=2"></script>
+</body>
+</html>
